@@ -47,7 +47,8 @@ Docker Compose | 容器编排工具 | [官网](https://docs.docker.com/compose/)
 Kubernetes | 容器编排系统 | [官网](https://kubernetes.io/)
 TiDB | 分布式数据库 | [官网](https://pingcap.com/)
 OKHttp3 | 轻量级网络框架 | [GitHub](https://github.com/square/okhttp)
-Feign | 声明式 HTTP 客户端 | [GitHub](https://github.com/OpenFeign/feign)
+OpenFeign | 声明式 HTTP 客户端 | [GitHub](https://github.com/OpenFeign/feign)
+UserAgentUtils | 用户代理检查工具 | [GitHub](https://github.com/HaraldWalker/user-agent-utils)
 
 ## 前端技术
 
@@ -125,7 +126,8 @@ Feign 传递 Token | ✔
 
 服务名 | 端口 | 说明 
 ----|----|----
-ums-admin-provider | 随机 | 用户服务提供者
+provider-admin | 随机 | 管理员服务提供者 
+provider-admin-login-log | 随机 | 登录日志服务提供者 
 
 ### 业务逻辑
 
@@ -140,6 +142,13 @@ business-profile | 9002 | 个人信息管理服务
 服务名 | 端口 | 说明 
 ----|----|----
 cloud-upload | 10001 | 文件上传服务
+cloud-message | 10002 | 消息队列服务 
+
+### 消息队列
+
+服务名 | 端口 | 说明 
+----|----|----
+message-admin-login-log | 20001 | 管理员登录日志消费者 
 
 ### 网关
 
@@ -163,9 +172,10 @@ ZenTao | docker-zentao | 192.168.141.203:80 | 2 核 2G | 项目管理
 | 主机名               | IP                 | 角色   | CPU/MEM | 磁盘     |
 | -------------------- | ------------------ | ------ | ------- | -------- |
 | kubernetes\-master   | 192\.168\.141\.110 | Master | 2 核 2G | 20G      |
-| kubernetes\-node\-01 | 192\.168\.141\.120 | Node   | 2 核 4G | 20G      |
-| kubernetes\-node\-02 | 192\.168\.141\.121 | Node   | 2 核 4G | 20G      |
-| kubernetes\-node\-03 | 192\.168\.141\.122 | Node   | 2 核 4G | 20G      |
+| kubernetes\-node\-01 | 192\.168\.141\.120 | Node   | 2 核 4G | 20G + 40G      |
+| kubernetes\-node\-02 | 192\.168\.141\.121 | Node   | 2 核 4G | 20G + 40G      |
+| kubernetes\-node\-03 | 192\.168\.141\.122 | Node   | 2 核 4G | 20G + 40G      |
+| kubernetes\-node\-04 | 192\.168\.141\.123 | Node   | 2 核 8G | 20G + 40G      |
 | kubernetes-volumes   | 192.168.141.130    | NFS    | 2 核 2G | 按需扩容 |
 
 ## 容器部署配置
